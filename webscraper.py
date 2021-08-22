@@ -27,3 +27,5 @@ def get_four_factors_recent():
         df_rows.append(df_cells)
 
     return pd.DataFrame(df_rows)
+
+df = get_four_factors_recent()
