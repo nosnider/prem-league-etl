@@ -31,7 +31,7 @@ player_stats['loaded_at'] = loaded_at
 player_types = pd.DataFrame(data['element_types'])
 player_types['loaded_at'] = loaded_at
 
-if __name__ == “__main__”:
+if __name__ == "__main__":
     # load to bigquery tables
     gameweeks.to_gbq('raw.gameweeks', project_id=bq_project, if_exists='replace', credentials=credentials)
     teams.to_gbq('raw.teams', project_id=bq_project, if_exists='replace', credentials=credentials)
