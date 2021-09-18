@@ -26,7 +26,7 @@ bq_dataset = 'raw'
 
 # auth
 credentials = service_account.Credentials.from_service_account_file(
-    '/Users/noahsnider/PycharmProjects/prem-league-etl/creds.json',
+    'creds.json',
 )
 
 # load to bigquery tables
@@ -35,3 +35,4 @@ teams.to_gbq('raw.teams', project_id=bq_project, if_exists='replace', credential
 players.to_gbq('raw.players', project_id=bq_project, if_exists='replace', credentials=credentials)
 player_stats.to_gbq('raw.player_stats', project_id=bq_project, if_exists='replace', credentials=credentials)
 player_types.to_gbq('raw.player_types', project_id=bq_project, if_exists='replace', credentials=credentials)
+
