@@ -1,58 +1,37 @@
-"""Function called by PubSub trigger to execute cron job tasks."""
-import datetime
-import logging
-from string import Template
-import config
-from google.cloud import bigquery
+import requests
+from google.oauth2 import service_account
+import pandas as pd
+from datetime import datetime
 
+# request data from fantasy pl api
+r = requests.get('https://fantasy.premierleague.com/api/bootstrap-static/')
+data = r.json()
 
+# save response objects to df
+loaded_at = datetime.now()
+gameweeks = pd.DataFrame(data['events'])
+gameweeks['loaded_at'] = loaded_at
+teams = pd.DataFrame(data['teams'])
+teams['loaded_at'] = loaded_at
+players = pd.DataFrame(data['elements'])
+players['loaded_at'] = loaded_at
+player_stats = pd.DataFrame(data['element_stats'])
+player_stats['loaded_at'] = loaded_at
+player_types = pd.DataFrame(data['element_types'])
+player_types['loaded_at'] = loaded_at
 
-def execute_query(bq_client):
-    """Executes transformation query to a new destination table.
-    Args:
-        bq_client: Object representing a reference to a BigQuery Client
-    """
-    dataset_ref = bq_client.get_dataset(bigquery.DatasetReference(
-        project=config.config_vars['project_id'],
-        dataset_id=config.config_vars['output_dataset_id']))
-    table_ref = dataset_ref.table(config.config_vars['output_table_name'])
-    job_config = bigquery.QueryJobConfig()
-    job_config.destination = table_ref
-    job_config.write_disposition = bigquery.WriteDisposition().WRITE_TRUNCATE
-    sql = file_to_string(config.config_vars['sql_file_path'])
-    logging.info('Attempting query on all dates...')
-    # Execute Query
-    query_job = bq_client.query(
-        sql,
-        job_config=job_config)
+# define bigquery project and dataset name
+bq_project = 'fantasy-pl-etl'
+bq_dataset = 'raw'
 
-    query_job.result()  # Waits for the query to finish
-    logging.info('Query complete. The table is updated.')
+# auth
+credentials = service_account.Credentials.from_service_account_file(
+    '/Users/noahsnider/PycharmProjects/prem-league-etl/creds.json',
+)
 
-def main(data, context):
-    """Triggered from a message on a Cloud Pub/Sub topic.
-    Args:
-        data (dict): Event payload.
-        context (google.cloud.functions.Context): Metadata for the event.
-    """
-    bq_client = bigquery.Client()
-
-    try:
-        current_time = datetime.datetime.utcnow()
-        log_message = Template('Cloud Function was triggered on $time')
-        logging.info(log_message.safe_substitute(time=current_time))
-
-        try:
-            execute_query(bq_client)
-
-        except Exception as error:
-            log_message = Template('Query failed due to '
-                                   '$message.')
-            logging.error(log_message.safe_substitute(message=error))
-
-    except Exception as error:
-        log_message = Template('$error').substitute(error=error)
-        logging.error(log_message)
-
-if __name__ == '__main__':
-    main('data', 'context')
+# load to bigquery tables
+gameweeks.to_gbq('raw.gameweeks', project_id=bq_project, if_exists='replace', credentials=credentials)
+teams.to_gbq('raw.teams', project_id=bq_project, if_exists='replace', credentials=credentials)
+players.to_gbq('raw.players', project_id=bq_project, if_exists='replace', credentials=credentials)
+player_stats.to_gbq('raw.player_stats', project_id=bq_project, if_exists='replace', credentials=credentials)
+player_types.to_gbq('raw.player_types', project_id=bq_project, if_exists='replace', credentials=credentials)

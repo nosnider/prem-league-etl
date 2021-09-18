@@ -131,3 +131,5 @@ dmypy.json
 
 # pycharm config
 .idea/
+
+creds.json
