@@ -48,8 +48,8 @@ def main(data, context):
 
         try:
             gameweeks.to_gbq('raw.gameweeks', project_id=bq_project, if_exists='replace', credentials=credentials)
-            teams.to_gbq('raw.teams', project_id=bq_project, if_exists='replace', credentials=credentials)
-            players.to_gbq('raw.players', project_id=bq_project, if_exists='replace', credentials=credentials)
+            teams.to_gbq('raw.teams', project_id=bq_project, if_exists='append', credentials=credentials)
+            players.to_gbq('raw.players', project_id=bq_project, if_exists='append', credentials=credentials)
             player_stats.to_gbq('raw.player_stats', project_id=bq_project, if_exists='replace', credentials=credentials)
             player_types.to_gbq('raw.player_types', project_id=bq_project, if_exists='replace', credentials=credentials)
 
