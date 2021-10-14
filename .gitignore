@@ -132,4 +132,5 @@ dmypy.json
 # pycharm config
 .idea/
 
-creds.json
+bq-import/creds.json
+dbt_cred.json
