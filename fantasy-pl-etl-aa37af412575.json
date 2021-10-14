@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "fantasy-pl-etl",
+  "private_key_id": "aa37af4125755921ddd4321df47392b5314e378a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDHjsXoHxoYT1AJ\nRCFdsRdf4SNW0TKeW7Eak6DR/mcf3Q12md5S9sDsbsfaYFFrrOOEUoaCvAUTexH4\nQ1sYduziueVz35s2ly5NuYynw8MAPXKdCrbd2OTFU+WdAEQD9LCjYbMCXMSd4je7\nUUz9p2R847YY4aa7jldMFVdPKPYm5wrxuwXZ0CW7b8VgHyYC/+aCCl1KPzO8YK7M\n5CcuxrNIcaGvXpsx9KWCsz1IFbn59kXeaP8tpN+HorqIrNLifd8Rs6PBczm5pySF\n3hng4ff930VcU0z1+7BpdfI9brPPZO0FhgyNoMqqeKzlDCoY/U9FKO5k7mHCE1Y+\nLYpaMkgfAgMBAAECggEANf9ymthLoddYQ2Gdm7IPLqEHhHbv+Py7pALdaeUqd2tD\nuNty1sUxN+jUCEm2zmmGWOhRwG9q+jX7i0+Ch1Cq0cDWjy+q2q821s5F+qFUkyyN\nZmQfTlFhuel1QLHxNZbQ8yy9GP8MLuKnDPc3W42fedHOFNZ+XNLr2UkPCnr9fFHe\n9SqoKeync4zJxc/s/FwLWhjZ6IExiwRFtc8Fzn+X9yMz5aIUq3gFxZ09URvT5io5\n+lVWWusDJsZue9fp1aurwkxobTijK3UJzm2nhUqcD3hocMlaliwW/lvPK024+PWa\n+P8okmcs6Ghv6ir38kW/gGtg307kSQ34MjsuZI/RBQKBgQDqKIIEwCNt2qvNNO32\nZAVSx+dz9MstfMtZq089O5RuG0SR1e+cqoyHLDyQKCGQNBTjtqP/RWw2kUbrVCwl\nETX9Jl/Avbguhi3Rh2Km612MwzRB81VPfYATkxBbWcIOQB51vvPpXH9GE5zQJC7W\nSAAWjY5akuL7laX4BrD0GxX5qwKBgQDaLAj+JZ+BAt3zEGzNXaQpDssIUpnEOs7F\nGjzWpD9g60YBueQuU16aC3CT/J6jItp1ldT4ZZA8FuVlDbUfSkS415k6BKkschnv\nUHUVYs9bqKnJnOvWt4lcSbFDJQ5waTxCvAqiJeVsfL09Lx0W4PPXaMN6PL57pdZO\nfGJPydC/XQKBgQDEqCqyVLAsteduG9LzCQPTh2Ki52ewl0utzotpMN2zL6GCHbv0\nxuPpLsTaiWnO037r1Fudq697kL2QLQw6QV8nchAfLvc906EthVfcOnZCHzuHXBc9\nAHkNd4jYP+UT1NQALdRqHC4kK5qa0JipjKTOTCrPdOe/ReqzCOOa0Bi/qwKBgGj8\ngcNS9YOOjqG1yLW2lxWO4dL6dLZCGlgs/RPI7BrGfOS9wHkuczqrwJvmF6ynS/sD\ng/2YWiUgW3kadIs/IPzV+w05SvNxYNuRmxYUe3Y/Hp0/XxnvLjFz4NJP1bfwXCg8\n9tz6YYGoMSRtNJFa5NxGtLJw4rT7o7oXDvQYSNSdAoGARU6lYwZIGFNaBgV5DB9o\nyslfUGtn5SboGRrrx9bVyvTYj1kTYVMM4w2w4A23V3l27oOu2loKr20TL7qyY0is\nNj84U9eKsioH6OaoWDXdpEdIvEkqjhBeM1q+6inQeF0NEyqMtuPKBhBGv4/ftnpk\ntcKRGlhBmzKoHd7P6m8ykoI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "fantasy-pl-etl@appspot.gserviceaccount.com",
+  "client_id": "108282329198900167969",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/fantasy-pl-etl%40appspot.gserviceaccount.com"
+}
